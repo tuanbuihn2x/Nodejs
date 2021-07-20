@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assignment_js 3</title>
+</head>
+<body>
+<section class="col-md-12">
+  <div class="container">
+      <div class="cat" id="cat">
+
+      </div>
+      <div class="food" id="food">
+
+      </div>
+  </div>
+</section>
+
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+  $.ajax({
+    url:"https://foodgroup.herokuapp.com/api/category/1",
+    method:"GET",
+    success:function (rs){
+        var category = rs.data.category;
+        var cate_html = "<p><span id=\"cateid\">"+category.id+"</span></p>\n" +
+            "      <h1><span id=\"catename\">"+category.name+"</span></h1>\n" +
+            "      <img class=\"cateimg\" src=\""+category.icon+"\" id=\"cateicon\"/>";
+        $("#cat").append(cate_html);
+        var foods = rs.data.foods;
+        for(var i=0; i<foods.length; i++){
+            var food_html = "<p><span id=\"foodid\">"+foods[i].id+"</span></p>\n" +
+                "          <h1><span id=\"foodname\">"+foods[i].name+"</span></h1>\n" +
+                "          <img class=\"foodim\" src=\""+foods[i].image+"\" id=\"foodimg\"/>\n" +
+                "          <p><span id=\"desc\">"+foods[i].description+"</span></p>\n" +
+                "          <h1><span id=\"price\">"+foods[i].price+"</span></h1>";
+            $("#food").append(food_html);
+        }
+    }
+  });
+</script>
+</body>
+</html>

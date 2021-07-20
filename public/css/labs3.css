@@ -1,0 +1,30 @@
+div{
+    margin: 70px -50px 0 140px;
+}
+.left{
+    width: 300px;
+    height: 1000px;
+    margin: -270px 0 0 0;
+    float: left;
+}
+.bot{
+    width: 1000px;
+    height: 1000px;
+}
+.right{
+    width: 600px;
+    margin: -60px 0 0 0;
+    padding: -60px 0 0 0;
+    float: left;
+}
+.top {
+    width: 900px;
+    height: 200px;
+    background-color: slategray;
+}
+.top h1{
+    text-align: left;
+}
+.top h2{
+    text-align: left;
+}

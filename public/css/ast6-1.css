@@ -1,0 +1,46 @@
+.header{
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: white;
+    padding-left: 70px;
+    padding-top: 10px;
+    height: 50px;
+}
+.container{
+    font-size: 18px;
+}
+.top{
+    margin-top: 20px;
+    box-shadow: 1px 1px 10px black;
+}
+.item h1,p{
+    text-align: center;
+    font-size: 16px;
+}
+.item h1{
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.up{
+    padding-top: 50px;
+}
+.item{
+    float: none;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.blank{
+    background-color: black;
+}
+.item img{
+    width: 100%;
+}
+.description{
+    background-color: black;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+.description a{
+    color: white;
+}

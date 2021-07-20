@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather 2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <ul id="list-weather" class="row">
+    </ul>
+</div>
+
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $.ajax({
+        url:"http://api.openweathermap.org/data/2.5/forecast",
+        data:{
+            q:"Hanoi,vietnam",
+            appid:"09a71427c59d38d6a34f89b47d75975c",
+            units:"metric"
+        },
+        method:"GET",
+        success:function (rs) {
+            var list = rs.list;
+            for(var i=0;i<12;i++){
+                var img_url = "http://openweathermap.org/img/wn/03d@2x.png";
+                var desc = "";
+                var weather = list[i].weather;
+                for(var j=0;j<weather.length;j++){
+                    img_url = "http://openweathermap.org/img/wn/"+weather[j].icon+"@2x.png";
+                    desc = weather[j].description;
+                }
+                var li_html = "<li class=\"weather col-md-2\">\n" +
+                    "            <p class=\"time\">"+list[i].dt_txt+"</p>\n" +
+                    "            <img src=\""+img_url+"\"/>\n" +
+                    "            <p class=\"min_temp\"><span>"+list[i].main.temp_min+"</span><sup>o</sup>C</p>\n" +
+                    "            <p class=\"max_temp\"><span>"+list[i].main.temp_max+"</span><sup>o</sup>C</p>\n" +
+                    "            <p class=\"text-capitalize\">"+desc+"</p>\n" +
+                    "        </li>";
+                $("#list-weather").append(li_html);
+            }
+        }
+    });
+</script>
+</body>
+</html>

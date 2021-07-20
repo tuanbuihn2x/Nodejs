@@ -1,0 +1,42 @@
+h1{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+}
+.top{
+    box-shadow: 0 0 5px black;
+    margin: 30px;
+    border: 10px;
+    padding: 10px;
+}
+.element{
+    box-shadow: 0 0 5px black;
+    opacity: 80%;
+    float: left;
+    width: 300px;
+    height: 360px;
+    margin: 20px;
+    border: 20px;
+    padding: 10px;
+    .element:hover;
+}
+.element img{
+    width: 300px;
+    height: 200px;
+}
+.element p{
+    text-align: center;
+}
+.element h1{
+    text-align: center;
+}
+.seed{
+    color: white;
+    background-color: black;
+    margin: 0px 0px 0px -10px;
+    width: 320px;
+    height: 50px;
+}
+.seed h1{
+    text-align: center;
+}
+

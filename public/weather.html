@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>asm js 4 weather</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+</head>
+<body>
+<section class="col-md-12">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="icon col-md-1" id="icon">
+                <img src="images/ast_js_4/sunny_s_cloudy.png"/>
+            </div>
+            <div class="tempp col-md-2" id="tempp">
+
+            </div>
+            <div class="description col-md-5" id="desc">
+                <p>Precipitation: 9%</p>
+                <p>Humidity: 62%</p>
+                <p>Wind: 13 km/h</p>
+            </div>
+            <div class="local col-md-4" id="local">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $.ajax({
+        url:"https://api.openweathermap.org/data/2.5/weather?q=hanoi,vietnam&&units=metric&appid=09a71427c59d38d6a34f89b47d75975c",
+        method:"GET",
+        success:function (rs){
+            var temp_html = "<h1><span id=\"temp\">"+rs.main.temp+"</span><sup><sup>o</sup>C | <sup>o</sup>F</sup></h1>";
+            $("#tempp").append(temp_html);
+            var local_html = "<p><b><span id=\"lo\">"+rs.name+"</span>, Hoàn Kiếm, <span id=\"ol\">"+rs.name+"</span></b></p>\n" +
+                "                <p>Tuesday 19:00</p>\n" +
+                "                <p>Clear with periodic clouds</p>";
+            $("#local").append(local_html);
+        }
+    });
+</script>
+</body>
+</html>
